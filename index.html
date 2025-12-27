@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday</title>
+
+<style>
+body {
+    background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+    font-family: 'Georgia', serif;
+    color: #f5f5f5;
+    text-align: center;
+    padding: 30px;
+}
+
+h1 {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+}
+
+#countdown {
+    font-size: 1.5em;
+    margin: 25px 0;
+    letter-spacing: 1px;
+}
+
+.message {
+    max-width: 600px;
+    margin: auto;
+    font-size: 1.1em;
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+.footer {
+    margin-top: 40px;
+    font-size: 0.9em;
+    opacity: 0.7;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Happy Birthday T 🤍</h1>
+<div id="countdown">Loading countdown...</div>
+
+<div class="message">
+<p>
+I hope this year brings you good health, happiness, and plenty of moments that make you smile.
+May things work out in your favour and may you keep moving forward with confidence.
+Wishing you the very best, always.
+</p>
+
+</div>
+
+<div class="footer">
+Take care 🌿
+</div>
+
+<script>
+// 🔴 SET BIRTHDAY DATE BELOW
+// Format: Month Day, Year Time
+const birthday = new Date("January 17, 2026 00:00:00").getTime();
+
+const timer = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = birthday - now;
+
+    if (distance < 0) {
+        clearInterval(timer);
+        document.getElementById("countdown").innerHTML = "🎉 It's your birthday 🎉";
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown").innerHTML =
+        days + " days · " + hours + " hours · "
+        + minutes + " minutes · " + seconds + " seconds";
+}, 1000);
+</script>
+
+</body>
+</html>
